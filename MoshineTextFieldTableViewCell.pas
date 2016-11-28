@@ -5,6 +5,9 @@ uses
 
 type
 
+  OnTextChangedDelegate = public block(value:NSString);
+
+
   [IBObject]
   MoshineTextFieldTableViewCell = public class(UITableViewCell)
   private
@@ -25,10 +28,25 @@ type
       
       self.textField.textAlignment := NSTextAlignment.Left;
       
+      self.textField.addTarget(self) action(selector(textFieldDidChange:)) forControlEvents(UIControlEvents.EditingChanged);
+      
+    end;
+    
+    method textFieldDidChange(sender:id);
+    begin
+      if((assigned(OnTextChanged)) and (assigned(sender)))then
+      begin
+        OnTextChanged(UITextField(sender).text);
+      end;
+      
     end;
     
   protected
   public
+  
+
+    property OnTextChanged:OnTextChangedDelegate;
+    
   
     [IBOutlet]property textField:weak UITextField;
   

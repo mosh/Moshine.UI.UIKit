@@ -5,7 +5,8 @@ uses
 
 type
 
-  MoshineTableTableViewCell = public class(UITableViewCell,IUITableViewDataSource,IUITableViewDelegate)
+
+  MoshineTableTableViewCell = public class(UITableViewCell,IUITableViewDelegate)
   private
     
     _content:UITableView;
@@ -14,7 +15,7 @@ type
     begin
       self._content := new UITableView;
       self._content.delegate := self;
-      self._content.dataSource := self;
+      //self._content.dataSource := self;
       
       self.detailTextLabel:hidden := true;
       self.contentView.viewWithTag(3):removeFromSuperview();
@@ -42,33 +43,11 @@ type
       
     end;
     
-    method tableView(tableView: not nullable UITableView) numberOfRowsInSection(section: NSInteger): NSInteger;
-    begin
-      exit 5;
-    end;
-    
-    method numberOfSectionsInTableView(tableView: UITableView): NSInteger;
-    begin
-      result := 1;
-    end;
-    
-    
-    method tableView(tableView: not nullable UITableView) cellForRowAtIndexPath(indexPath: not nullable NSIndexPath): UITableViewCell;
-    begin
-      var CellIdentifier:NSString := 'LabelControllerCell';
-
-      var cell := tableView.dequeueReusableCellWithIdentifier(CellIdentifier);
-      if not assigned(cell) then
-      begin
-        cell := new MoshineLabelTableViewCell withStyle(UITableViewCellStyle.UITableViewCellStyleDefault) reuseIdentifier(CellIdentifier);
-        MoshineLabelTableViewCell(cell).textLabel.text := 'Grenada';
-      end;
-      exit cell;
-    end;
     
   protected
   
   public
+  
     method awakeFromNib; override;
     begin
       inherited awakeFromNib;
@@ -98,6 +77,13 @@ type
     method layoutSubviews; override;
     begin
       inherited layoutSubviews;
+    end;
+    
+    property dataSource:IUITableViewDataSource write set_dataSource;
+    
+    method set_dataSource(value:IUITableViewDataSource);
+    begin
+      self._content.dataSource := value;
     end;
     
   
