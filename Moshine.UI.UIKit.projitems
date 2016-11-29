@@ -12,7 +12,6 @@
         <Compile Include="$(MSBuildThisFileDirectory)MoshineLabelTableViewCell.pas"/>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineTableTableViewCell.pas"/>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineTextFieldTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineMaskedTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)NGMaskedTextField.pas"/>
+        <Compile Include="$(MSBuildThisFileDirectory)MoshineNumberTableViewCell.pas"/>
     </ItemGroup>
 </Project>
