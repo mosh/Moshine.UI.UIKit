@@ -9,22 +9,18 @@ type
 
 
   [IBObject]
-  MoshineTextFieldTableViewCell = public class(UITableViewCell)
-  private
+  MoshineTextFieldTableViewCell = public class(MoshineBaseTableCell)
+  protected
   
-    method setup;
+    method createControl:UIView; override;
     begin
-      self.detailTextLabel:hidden := true;
-      self.textField := new UITextField;
-      self.contentView.viewWithTag(3):removeFromSuperview();
-      self.textField.tag := 3;
-      self.textField.translatesAutoresizingMaskIntoConstraints := false;
-      self.contentView.addSubview(self.textField);
-      
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.textField) attribute(NSLayoutAttribute.Leading) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Leading) multiplier(1) constant(8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.textField) attribute(NSLayoutAttribute.Top) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Top) multiplier(1) constant(8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.textField) attribute(NSLayoutAttribute.Bottom) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Bottom) multiplier(1) constant(-8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.textField) attribute(NSLayoutAttribute.Trailing) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Trailing) multiplier(1) constant(-16));
+      exit new UITextField;
+    end;
+  
+  
+    method setup; override;
+    begin
+      inherited setup;
       
       self.textField.textAlignment := NSTextAlignment.Left;
       
@@ -41,40 +37,17 @@ type
       
     end;
     
-  protected
+    method get_textField:UITextField;
+    begin
+      exit cellControl as UITextField;
+    end;
+    
   public
-  
 
     property OnTextChanged:OnTextChangedDelegate;
-    
   
-    [IBOutlet]property textField:weak UITextField;
+    [IBOutlet]property textField:weak UITextField read get_textField;
   
-    method awakeFromNib; override;
-    begin
-      inherited awakeFromNib;
-      setup;
-    end;
-    
-    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): instancetype; override;
-    begin
-      self := inherited initWithStyle(style) reuseIdentifier(reuseIdentifier);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
-    end;
-    
-    method initWithCoder(aDecoder: NSCoder): instancetype;
-    begin
-      self := inherited initWithCoder(aDecoder);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
-    end;
     
     method touchesBegan(touches: not nullable NSSet) withEvent(&event: nullable UIEvent); override;
     begin

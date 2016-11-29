@@ -6,21 +6,21 @@ uses
 type
 
 
-  MoshineTableTableViewCell = public class(UITableViewCell,IUITableViewDelegate)
-  private
+  MoshineTableTableViewCell = public class(MoshineBaseTableCell,IUITableViewDelegate)
     
-    _content:UITableView;
+  protected
   
-    method setup;
+    method createControl:UIView; override;
     begin
-      self._content := new UITableView;
-      self._content.delegate := self;
+      exit new UITableView;
+    end;
+
+  
+    method setup; override;
+    begin
+      inherited setup;
       
-      self.detailTextLabel:hidden := true;
-      self.contentView.viewWithTag(3):removeFromSuperview();
-      self._content.tag := 3;
-      self._content.translatesAutoresizingMaskIntoConstraints := false;
-      self.contentView.addSubview(self._content);
+      self.TableControl.delegate := self;
       
       var insets := new UIEdgeInsets;
       insets.top := 20.0;
@@ -28,40 +28,17 @@ type
       insets.bottom := 10.0;
       insets.right := 5.0;
       
-      self._content.autoPinEdgesToSuperviewEdgesWithInsets(insets);      
+      self.TableControl.autoPinEdgesToSuperviewEdgesWithInsets(insets);      
       
     end;
     
+    method get_TableControl:UITableView;
+    begin
+      exit cellControl as UITableView;
+    end;
     
-  protected
-  
   public
   
-    method awakeFromNib; override;
-    begin
-      inherited awakeFromNib;
-      setup;
-    end;
-    
-    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): instancetype; override;
-    begin
-      self := inherited initWithStyle(style) reuseIdentifier(reuseIdentifier);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
-    end;
-    
-    method initWithCoder(aDecoder: NSCoder): instancetype;
-    begin
-      self := inherited initWithCoder(aDecoder);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
-    end;
     
     method layoutSubviews; override;
     begin
@@ -70,9 +47,11 @@ type
     
     property dataSource:IUITableViewDataSource write set_dataSource;
     
+    property TableControl:weak UITableView read get_TableControl;
+    
     method set_dataSource(value:IUITableViewDataSource);
     begin
-      self._content.dataSource := value;
+      self.TableControl.dataSource := value;
     end;
     
   

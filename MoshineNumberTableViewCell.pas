@@ -5,27 +5,22 @@ uses
 
 type
 
-  MoshineNumberTableViewCell = public class(UITableViewCell, IUITextFieldDelegate)
-  private
+  MoshineNumberTableViewCell = public class(MoshineBaseTableCell, IUITextFieldDelegate)
+  protected
   
-    method setup;
+    method createControl:UIView; override;
     begin
-      self.detailTextLabel:hidden := true;
-      self.CellControl := new UITextField;
-      self.contentView.viewWithTag(3):removeFromSuperview();
-      self.CellControl.tag := 3;
-      self.CellControl.translatesAutoresizingMaskIntoConstraints := false;
-      self.contentView.addSubview(self.CellControl);
+      exit new UITextField;
+    end;
+  
+    method setup; override;
+    begin
+      inherited setup;
       
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.CellControl) attribute(NSLayoutAttribute.Leading) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Leading) multiplier(1) constant(8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.CellControl) attribute(NSLayoutAttribute.Top) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Top) multiplier(1) constant(8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.CellControl) attribute(NSLayoutAttribute.Bottom) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Bottom) multiplier(1) constant(-8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.CellControl) attribute(NSLayoutAttribute.Trailing) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Trailing) multiplier(1) constant(-16));
+      self.textControl.textAlignment := NSTextAlignment.Left;
+      self.textControl.delegate := self;
       
-      self.CellControl.textAlignment := NSTextAlignment.Left;
-      self.CellControl.delegate := self;
-      
-      self.CellControl.addTarget(self) action(selector(textFieldDidChange:)) forControlEvents(UIControlEvents.EditingChanged);
+      self.textControl.addTarget(self) action(selector(textFieldDidChange:)) forControlEvents(UIControlEvents.EditingChanged);
       
     end;
     
@@ -56,44 +51,22 @@ type
       
       exit false;
     end;
+    
+    method get_textControl:UITextField;
+    begin
+      exit cellControl as UITextField;
+    end;
 
   public
   
 
     property OnTextChanged:OnTextChangedDelegate;
-    
   
-    [IBOutlet]property CellControl:weak UITextField;
-  
-    method awakeFromNib; override;
-    begin
-      inherited awakeFromNib;
-      setup;
-    end;
-    
-    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): instancetype; override;
-    begin
-      self := inherited initWithStyle(style) reuseIdentifier(reuseIdentifier);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
-    end;
-    
-    method initWithCoder(aDecoder: NSCoder): instancetype;
-    begin
-      self := inherited initWithCoder(aDecoder);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
-    end;
+    [IBOutlet]property textControl:weak UITextField read get_textControl;
     
     method touchesBegan(touches: not nullable NSSet) withEvent(&event: nullable UIEvent); override;
     begin
-      self.CellControl:becomeFirstResponder;
+      self.textControl:becomeFirstResponder;
     end;
         
     
