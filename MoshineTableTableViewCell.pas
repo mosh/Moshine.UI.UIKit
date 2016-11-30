@@ -5,7 +5,7 @@ uses
 
 type
 
-
+  [IBObject]
   MoshineTableTableViewCell = public class(MoshineBaseTableCell,IUITableViewDelegate)
     
   protected

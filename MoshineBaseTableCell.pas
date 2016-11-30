@@ -5,6 +5,7 @@ uses
 
 type
 
+  [IBObject]
   MoshineBaseTableCell = public abstract class(UITableViewCell)
   private
   protected

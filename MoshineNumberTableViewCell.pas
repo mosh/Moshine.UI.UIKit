@@ -4,7 +4,7 @@ uses
   Foundation,UIKit;
 
 type
-
+  [IBObject]
   MoshineNumberTableViewCell = public class(MoshineBaseTableCell, IUITextFieldDelegate)
   protected
   
