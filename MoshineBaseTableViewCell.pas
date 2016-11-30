@@ -5,8 +5,12 @@ uses
 
 type
 
+<<<<<<< HEAD:MoshineBaseTableCell.pas
   [IBObject]
   MoshineBaseTableCell = public abstract class(UITableViewCell)
+=======
+  MoshineBaseTableViewCell = public abstract class(UITableViewCell)
+>>>>>>> origin/master:MoshineBaseTableViewCell.pas
   private
   protected
   
