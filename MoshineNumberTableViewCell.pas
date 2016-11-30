@@ -4,13 +4,9 @@ uses
   Foundation,UIKit;
 
 type
-<<<<<<< HEAD
-  [IBObject]
-  MoshineNumberTableViewCell = public class(MoshineBaseTableCell, IUITextFieldDelegate)
-=======
 
+  [IBObject]
   MoshineNumberTableViewCell = public class(MoshineBaseTableViewCell, IUITextFieldDelegate)
->>>>>>> origin/master
   protected
   
     method createControl:UIView; override;

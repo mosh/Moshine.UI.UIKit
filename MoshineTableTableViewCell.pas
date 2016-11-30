@@ -5,13 +5,8 @@ uses
 
 type
 
-<<<<<<< HEAD
   [IBObject]
-  MoshineTableTableViewCell = public class(MoshineBaseTableCell,IUITableViewDelegate)
-=======
-
   MoshineTableTableViewCell = public class(MoshineBaseTableViewCell,IUITableViewDelegate)
->>>>>>> origin/master
     
   protected
   
