@@ -1,7 +1,7 @@
 ﻿namespace Moshine.UI.UIKit;
 
 uses
-  Foundation,UIKit;
+  Foundation,UIKit,PureLayout.PureLayout;
 
 type
 
@@ -23,10 +23,14 @@ type
       self.cellControl.translatesAutoresizingMaskIntoConstraints := false;
       self.contentView.addSubview(self.cellControl);
       
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.cellControl) attribute(NSLayoutAttribute.Leading) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Leading) multiplier(1) constant(50));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.cellControl) attribute(NSLayoutAttribute.Top) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Top) multiplier(1) constant(8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.cellControl) attribute(NSLayoutAttribute.Bottom) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Bottom) multiplier(1) constant(-8));
-      self.addConstraint(NSLayoutConstraint.constraintWithItem(self.cellControl) attribute(NSLayoutAttribute.Trailing) relatedBy(NSLayoutRelation.Equal) toItem(self.contentView) attribute(NSLayoutAttribute.Trailing) multiplier(1) constant(-16));
+      var insets := new UIEdgeInsets;
+      insets.top := 8.0;
+      insets.left := 16.0;
+      insets.bottom := 8.0;
+      insets.right := 16.0;
+      
+      self.cellControl.autoPinEdgesToSuperviewEdgesWithInsets(insets);      
+      
       
     end;
     
