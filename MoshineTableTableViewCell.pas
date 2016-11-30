@@ -6,7 +6,7 @@ uses
 type
 
 
-  MoshineTableTableViewCell = public class(MoshineBaseTableCell,IUITableViewDelegate)
+  MoshineTableTableViewCell = public class(MoshineBaseTableViewCell,IUITableViewDelegate)
     
   protected
   

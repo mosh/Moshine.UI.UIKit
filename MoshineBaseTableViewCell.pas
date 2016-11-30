@@ -5,7 +5,7 @@ uses
 
 type
 
-  MoshineBaseTableCell = public abstract class(UITableViewCell)
+  MoshineBaseTableViewCell = public abstract class(UITableViewCell)
   private
   protected
   

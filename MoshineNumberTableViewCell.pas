@@ -5,7 +5,7 @@ uses
 
 type
 
-  MoshineNumberTableViewCell = public class(MoshineBaseTableCell, IUITextFieldDelegate)
+  MoshineNumberTableViewCell = public class(MoshineBaseTableViewCell, IUITextFieldDelegate)
   protected
   
     method createControl:UIView; override;

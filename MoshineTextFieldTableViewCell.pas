@@ -9,7 +9,7 @@ type
 
 
   [IBObject]
-  MoshineTextFieldTableViewCell = public class(MoshineBaseTableCell)
+  MoshineTextFieldTableViewCell = public class(MoshineBaseTableViewCell)
   protected
   
     method createControl:UIView; override;

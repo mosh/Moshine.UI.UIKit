@@ -6,7 +6,7 @@ uses
 type
 
   [IBObject]
-  MoshineLabelTableViewCell = public class(MoshineBaseTableCell)
+  MoshineLabelTableViewCell = public class(MoshineBaseTableViewCell)
   protected
   
     method createControl:UIView; override;
