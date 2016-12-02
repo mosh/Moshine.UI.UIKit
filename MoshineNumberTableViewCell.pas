@@ -65,11 +65,12 @@ type
   
     [IBOutlet]property textControl:weak UITextField read get_textControl;
     
+    
     method touchesBegan(touches: not nullable NSSet) withEvent(&event: nullable UIEvent); override;
     begin
       self.textControl:becomeFirstResponder;
     end;
-        
+       
     
   end;
 

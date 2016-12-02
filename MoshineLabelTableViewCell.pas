@@ -31,11 +31,6 @@ type
   public
   
     [IBOutlet]property textLabel:weak UILabel read get_textLabel; override;
-    
-    method touchesBegan(touches: not nullable NSSet) withEvent(&event: nullable UIEvent); override;
-    begin
-      self.textLabel:becomeFirstResponder;
-    end;
   
   end;
 
