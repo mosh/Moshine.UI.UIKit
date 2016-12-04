@@ -5,6 +5,9 @@ uses
 
 type
 
+  OnDetailSelectedDelegate = public block(indexPath: NSIndexPath);
+
+
   [IBObject]
   MoshineTableTableViewCell = public class(MoshineBaseTableViewCell,IUITableViewDelegate)
     
@@ -37,6 +40,15 @@ type
       exit cellControl as UITableView;
     end;
     
+    method tableView(tableView: UITableView) accessoryButtonTappedForRowWithIndexPath(indexPath: NSIndexPath);
+    begin
+      if(assigned(DetailSelected))then
+      begin
+        DetailSelected(indexPath);
+      end;
+    end;
+
+    
   public
   
     
@@ -48,6 +60,8 @@ type
     property dataSource:IUITableViewDataSource write set_dataSource;
     
     property TableControl:weak UITableView read get_TableControl;
+    
+    property DetailSelected:OnDetailSelectedDelegate;
     
     method set_dataSource(value:IUITableViewDataSource);
     begin
