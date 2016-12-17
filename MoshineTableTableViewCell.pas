@@ -23,7 +23,7 @@ type
     begin
       inherited setup;
       
-      self.TableControl.delegate := self;
+      self.TableView.delegate := self;
       
       var insets := new UIEdgeInsets;
       insets.top := 20.0;
@@ -31,11 +31,11 @@ type
       insets.bottom := 10.0;
       insets.right := 5.0;
       
-      self.TableControl.autoPinEdgesToSuperviewEdgesWithInsets(insets);      
+      self.TableView.autoPinEdgesToSuperviewEdgesWithInsets(insets);      
       
     end;
     
-    method get_TableControl:UITableView;
+    method get_TableView:UITableView;
     begin
       exit cellControl as UITableView;
     end;
@@ -59,13 +59,13 @@ type
     
     property dataSource:IUITableViewDataSource write set_dataSource;
     
-    property TableControl:weak UITableView read get_TableControl;
+    property TableView:weak UITableView read get_TableView;
     
     property DetailSelected:OnDetailSelectedDelegate;
     
     method set_dataSource(value:IUITableViewDataSource);
     begin
-      self.TableControl.dataSource := value;
+      self.TableView.dataSource := value;
     end;
     
   
