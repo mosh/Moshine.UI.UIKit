@@ -15,5 +15,6 @@
         <Compile Include="$(MSBuildThisFileDirectory)MoshineNumberTableViewCell.pas"/>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineBaseTableViewCell.pas"/>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineTextViewTableViewCell.pas"/>
+        <Compile Include="$(MSBuildThisFileDirectory)MoshineDatePickerTableViewCell.pas"/>
     </ItemGroup>
 </Project>
