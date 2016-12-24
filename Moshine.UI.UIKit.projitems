@@ -10,7 +10,6 @@
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineLabelTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineTableTableViewCell.pas"/>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineTextFieldTableViewCell.pas"/>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineNumberTableViewCell.pas"/>
         <Compile Include="$(MSBuildThisFileDirectory)MoshineBaseTableViewCell.pas"/>
