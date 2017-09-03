@@ -1,19 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
-        <HasSharedItems>true</HasSharedItems>
-        <SharedGUID>2F813F89-8052-4F38-A24C-78EB917C8F5B</SharedGUID>
-    </PropertyGroup>
-    <PropertyGroup Label="Configuration">
-        <Import_RootNamespace>Moshine.UI.UIKit</Import_RootNamespace>
-    </PropertyGroup>
-    <ItemGroup>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineLabelTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineTextFieldTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineNumberTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineBaseTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineTextViewTableViewCell.pas"/>
-        <Compile Include="$(MSBuildThisFileDirectory)MoshineDatePickerTableViewCell.pas"/>
-    </ItemGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>2F813F89-8052-4F38-A24C-78EB917C8F5B</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Moshine.UI.UIKit</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MoshineLabelTableViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoshineTextFieldTableViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoshineNumberTableViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoshineBaseTableViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoshineTextViewTableViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoshineDatePickerTableViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoshineMoveableUITable.pas" />
+  </ItemGroup>
 </Project>
