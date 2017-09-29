@@ -16,5 +16,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)MoshineTextViewTableViewCell.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)MoshineDatePickerTableViewCell.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)MoshineMoveableUITable.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)DateCollectionViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)DateTimePicker.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)StepCollectionViewFlowLayout.pas" />
   </ItemGroup>
 </Project>
