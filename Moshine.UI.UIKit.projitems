@@ -19,5 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)DateCollectionViewCell.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)DateTimePicker.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)StepCollectionViewFlowLayout.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIResponderExtensions.pas" />
   </ItemGroup>
 </Project>
