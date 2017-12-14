@@ -1,7 +1,7 @@
 ﻿namespace Moshine.UI.UIKit;
 
 uses
-  Foundation,UIKit,PureLayout;
+  Foundation,UIKit,PureLayout.PureLayout;
 
 type
 
