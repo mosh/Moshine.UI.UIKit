@@ -17,6 +17,15 @@ type
     property snapshot: UIView read write;
     property sourceIndexPath: NSIndexPath read write;
 
+    method rowMovedToIndexPath(indexPath:NSIndexPath);
+    begin
+    end;
+
+    [IBAction]method longPressGestureRecognized(sender:id);
+    begin
+      self.longPressGestureRecognizedImpl(sender);
+    end;
+
   end;
 
   MoveableUITableViewExtensions = public extension class(IMoveableUITableView)
@@ -45,6 +54,13 @@ type
     end;
 
   public
+
+    method MakeMovable;
+    begin
+      var longPress: UILongPressGestureRecognizer := self.createGestureRecognizer;
+      self.tableView.addGestureRecognizer(longPress);
+
+    end;
 
     method longPressGestureRecognizedImpl(sender:id);
     begin
@@ -87,6 +103,7 @@ type
             self.MoveableObjects.exchangeObjectAtIndex(indexPath.row) withObjectAtIndex(sourceIndexPath.row);
             self.tableView.moveRowAtIndexPath(sourceIndexPath) toIndexPath(indexPath);
             sourceIndexPath := indexPath;
+
           end;
         end;
         else
@@ -100,9 +117,17 @@ type
               cell.alpha := 1;
             end) completion((finished) -> begin
               cell.hidden := false;
+
+              var copyOfIndexPath := NSIndexPath.indexPathForRow(sourceIndexPath.row) inSection(sourceIndexPath.section);
+
               sourceIndexPath := nil;
               snapshot.removeFromSuperview();
               snapshot := nil;
+
+              self.rowMovedToIndexPath(copyOfIndexPath);
+
+
+
             end);
           end;
       end;
