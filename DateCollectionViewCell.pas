@@ -1,4 +1,4 @@
-﻿namespace SimpleApp2;
+﻿namespace Moshine.UI.UIKit;
 
 uses
   UIKit;
