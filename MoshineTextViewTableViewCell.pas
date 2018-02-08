@@ -40,11 +40,11 @@ type
       self.textView:becomeFirstResponder;
     end;
 
-    method textViewDidChange(textView: UITextView);
+    method textViewDidChange(changingTextView: UITextView);
     begin
       if (assigned(OnTextChanged)) then
       begin
-        OnTextChanged(textView.text);
+        OnTextChanged(changingTextView.text);
       end;
 
     end;
