@@ -21,5 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)StepCollectionViewFlowLayout.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)UIResponderExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)IMoveableUITableView.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResultTableViewCell.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)IResultReceiver.pas" />
   </ItemGroup>
 </Project>

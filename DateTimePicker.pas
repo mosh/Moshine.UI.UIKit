@@ -196,7 +196,7 @@ type
         var positionValueLoss := scrollView.contentOffset.y - CGFloat(Integer(scrollView.contentOffset.y));
         var heightValueLoss := visibleHeight - CGFloat(Integer(visibleHeight));
         var modifiedPositionY := CGFloat(Integer( scrollView.contentOffset.y ) mod Integer( visibleHeight ) + Integer( visibleHeight )) - positionValueLoss - heightValueLoss;
-        var newOffset := CGPointMake(scrollView.contentOffset.x,modifiedPositionY);
+        //var newOffset := CGPointMake(scrollView.contentOffset.x,modifiedPositionY);
         //scrollView.contentOffset := newOffset;
 
       end;
