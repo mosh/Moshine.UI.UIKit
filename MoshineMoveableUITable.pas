@@ -10,23 +10,6 @@ type
   // https://www.raywenderlich.com/63089/cookbook-moving-table-view-cells-with-a-long-press-gesture
   //
 
-  IMoveableUITableView = public interface
-    property MoveableObjects : NSMutableArray read;
-    property tableView: UITableView read;
-
-    property snapshot: UIView read write;
-    property sourceIndexPath: NSIndexPath read write;
-
-    method rowMovedToIndexPath(indexPath:NSIndexPath);
-    begin
-    end;
-
-    [IBAction]method longPressGestureRecognized(sender:id);
-    begin
-      self.longPressGestureRecognizedImpl(sender);
-    end;
-
-  end;
 
   MoveableUITableViewExtensions = public extension class(IMoveableUITableView)
 
