@@ -6,7 +6,9 @@ uses
 
 type
 
+
   IMoveableUITableView = public interface
+
     property MoveableObjects : NSMutableArray read;
     property tableView: UITableView read;
 
