@@ -37,19 +37,14 @@ type
 
     end;
 
-    method get_textField:UITextField;
-    begin
-      exit cellControl as UITextField;
-    end;
 
   public
 
     property OnTextChanged:OnTextChangedDelegate;
 
-    [IBOutlet]property textField:weak UITextField read get_textField;
+    [IBOutlet]property textField:UITextField read UITextField(cellControl);
 
-
-    method touchesBegan(touches: not nullable NSSet) withEvent(&event: nullable UIEvent); override;
+    method touchesBegan(touches: NSSet<UITouch>) withEvent(&event: nullable UIEvent); override;
     begin
       self.textField:becomeFirstResponder;
     end;
