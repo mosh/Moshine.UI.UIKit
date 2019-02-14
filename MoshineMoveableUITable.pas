@@ -10,7 +10,6 @@ type
   // https://www.raywenderlich.com/63089/cookbook-moving-table-view-cells-with-a-long-press-gesture
   //
 
-
   MoveableUITableViewExtensions = public extension class(IMoveableUITableView)
 
   protected
@@ -116,6 +115,8 @@ type
       end;
     end;
 
+
   end;
+
 
 end.

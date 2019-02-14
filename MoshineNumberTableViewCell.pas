@@ -53,12 +53,14 @@ type
       exit false;
     end;
 
-  public
 
+  public
 
     property OnTextChanged:OnTextChangedDelegate;
 
-    [IBOutlet]property textControl:UITextField read UITextField(cellControl);
+    [IBOutlet]property textControl:UITextField read begin
+      exit cellControl as UITextField;
+    end;
 
     method touchesBegan(touches: NSSet<UITouch>) withEvent(&event: nullable UIEvent); override;
     begin

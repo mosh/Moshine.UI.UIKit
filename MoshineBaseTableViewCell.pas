@@ -44,7 +44,7 @@ type
       setup;
     end;
 
-    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): instancetype; override;
+    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): InstanceType; override;
     begin
       self := inherited initWithStyle(style) reuseIdentifier(reuseIdentifier);
       if(assigned(self))then
@@ -54,7 +54,7 @@ type
       exit self;
     end;
 
-    method initWithCoder(aDecoder: NSCoder): instancetype;
+    method initWithCoder(aDecoder: NSCoder): InstanceType;
     begin
       self := inherited initWithCoder(aDecoder);
       if(assigned(self))then

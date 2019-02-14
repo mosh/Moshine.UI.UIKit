@@ -16,6 +16,7 @@ type
       exit new UITextView;
     end;
 
+
   public
 
     method setup; override;
@@ -27,7 +28,9 @@ type
 
     end;
 
-    [IBOutlet]property textView:UITextView read UITextView(cellControl);
+    [IBOutlet]property textView:UITextView read begin
+      exit cellControl as UITextView;
+    end;
 
     method touchesBegan(touches: NSSet<UITouch>) withEvent(&event: nullable UIEvent); override;
     begin

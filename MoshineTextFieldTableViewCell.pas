@@ -42,7 +42,9 @@ type
 
     property OnTextChanged:OnTextChangedDelegate;
 
-    [IBOutlet]property textField:UITextField read UITextField(cellControl);
+    [IBOutlet]property textField:UITextField read begin
+      exit cellControl as UITextField;
+    end;
 
     method touchesBegan(touches: NSSet<UITouch>) withEvent(&event: nullable UIEvent); override;
     begin

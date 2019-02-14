@@ -184,7 +184,7 @@ type
 
   public
 
-    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): instancetype; override;
+    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): InstanceType; override;
     begin
 
       self := inherited initWithStyle(style) reuseIdentifier(reuseIdentifier);

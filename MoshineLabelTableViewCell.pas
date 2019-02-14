@@ -22,11 +22,15 @@ type
 
     end;
 
+    method get_textLabel:UILabel;
+    begin
+      exit cellControl as UILabel;
+    end;
+
+
   public
 
-    [IBOutlet]property textLabel:UILabel read UILabel(cellControl); override;
-
-
+    [IBOutlet]property textLabel:UILabel read get_textLabel; override;
 
   end;
 
