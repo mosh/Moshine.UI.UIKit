@@ -42,10 +42,7 @@ type
 
     end;
 
-    property isSelected: Boolean read get_isSelected; override;
-
-    method get_isSelected:Boolean;
-    begin
+    property isSelected: Boolean read begin
 
       dayLabel.textColor := iif(inherited.isSelected,UIColor.whiteColor,darkColor.colorWithAlphaComponent(0.5));
       numberLabel.textColor := iif(inherited.isSelected,UIColor.whiteColor,darkColor);
@@ -54,7 +51,7 @@ type
       contentView.backgroundColor := iif(inherited.isSelected, highlightColor, UIColor.whiteColor);
       contentView.layer.borderWidth := iif(inherited.isSelected, 0 , 1);
       exit inherited.isSelected;
-    end;
+    end; override;
 
     method populateItem(date: Date; someHighlightColor: UIColor; someDarkColor: UIColor);
     begin

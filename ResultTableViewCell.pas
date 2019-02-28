@@ -197,50 +197,38 @@ type
 
     end;
 
-    method get_Placed:Boolean;
-    begin
+
+    property Placed:Boolean read begin
       exit not DSQ and not DNF and not DNS and not RET;
     end;
 
-    property Placed:Boolean read get_Placed;
-
     property Entry:UILabel read label;
-
-    method set_Place(value:Integer);
-    begin
-      _place := value;
-    end;
-
-    method set_DSQ(value:Boolean);
-    begin
-      _DSQ := value;
-    end;
-
-    method set_DNF(value:Boolean);
-    begin
-      _DNF := value;
-    end;
-
-    method set_DNS(value:Boolean);
-    begin
-      _DNS := value;
-    end;
-
-    method set_RET(value:Boolean);
-    begin
-      _RET := value;
-    end;
 
     method reload;
     begin
       self.menu.reloadAllComponents;
     end;
 
-    property Place:Integer read _place write set_Place;
-    property DSQ:Boolean read _DSQ write set_DSQ;
-    property DNF:Boolean read _DNF write set_DNF;
-    property DNS:Boolean read _DNS write set_DNS;
-    property RET:Boolean read _RET write set_RET;
+    property Place:Integer read _place write begin
+      _place := value;
+    end;
+
+    property DSQ:Boolean read _DSQ write begin
+      _DSQ := value;
+    end;
+
+    property DNF:Boolean read _DNF write begin
+      _DNF := value;
+    end;
+
+    property DNS:Boolean read _DNS write begin
+        _DNS := value;
+      end;
+
+    property RET:Boolean read _RET write begin
+        _RET := value;
+      end;
+
     property ResultReceiver:IResultReceiver;
 
 

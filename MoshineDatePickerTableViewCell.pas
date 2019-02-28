@@ -7,29 +7,24 @@ type
 
   [IBObject]
   MoshineDatePickerTableViewCell = public class(MoshineBaseTableViewCell)
-  private
-  protected
-  
-    method get_DatePicker:UIDatePicker;
-    begin
-      exit cellControl as UIDatePicker;
-    end;
-  
+
   public
-  
+
     method createControl:UIView; override;
     begin
       exit new UIDatePicker;
     end;
-  
+
     method setup; override;
     begin
       inherited setup;
-      
+
     end;
-    
-    property DatePicker:UIDatePicker read get_DatePicker;
-  
+
+    property DatePicker:UIDatePicker read begin
+      exit cellControl as UIDatePicker;
+    end;
+
   end;
 
 end.
