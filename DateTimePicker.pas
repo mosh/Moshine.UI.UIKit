@@ -110,7 +110,7 @@ type
     //
 
 
-    method tableView(tableView: not nullable UITableView) cellForRowAtIndexPath(indexPath: not nullable NSIndexPath): not nullable UITableViewCell;
+    method tableView(tableView: not nullable UITableView) cellForRowAtIndexPath(indexPath: not nullable NSIndexPath): UITableViewCell;
     begin
       var cell := tableView.dequeueReusableCellWithIdentifier('timeCell');
 
@@ -193,9 +193,9 @@ type
       var visibleHeight := totalHeight / 3.0;
       if ((scrollView.contentOffset.y < visibleHeight) or (scrollView.contentOffset.y > visibleHeight + visibleHeight)) then
       begin
-        var positionValueLoss := scrollView.contentOffset.y - CGFloat(Integer(scrollView.contentOffset.y));
-        var heightValueLoss := visibleHeight - CGFloat(Integer(visibleHeight));
-        var modifiedPositionY := CGFloat(Integer( scrollView.contentOffset.y ) mod Integer( visibleHeight ) + Integer( visibleHeight )) - positionValueLoss - heightValueLoss;
+        //var positionValueLoss := scrollView.contentOffset.y - CGFloat(Integer(scrollView.contentOffset.y));
+        //var heightValueLoss := visibleHeight - CGFloat(Integer(visibleHeight));
+        //var modifiedPositionY := CGFloat(Integer( scrollView.contentOffset.y ) mod Integer( visibleHeight ) + Integer( visibleHeight )) - positionValueLoss - heightValueLoss;
         //var newOffset := CGPointMake(scrollView.contentOffset.x,modifiedPositionY);
         //scrollView.contentOffset := newOffset;
 
