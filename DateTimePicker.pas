@@ -110,7 +110,7 @@ type
     //
 
 
-    method tableView(tableView: not nullable UITableView) cellForRowAtIndexPath(indexPath: not nullable NSIndexPath): not nullable UITableViewCell;
+    method tableView(tableView: not nullable UITableView) cellForRowAtIndexPath(indexPath: not nullable NSIndexPath): UITableViewCell;
     begin
       var cell := tableView.dequeueReusableCellWithIdentifier('timeCell');
 
