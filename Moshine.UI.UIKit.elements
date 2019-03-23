@@ -2,8 +2,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
   <PropertyGroup Label="Globals">
     <ProjectGuid>2F813F89-8052-4F38-A24C-78EB917C8F5B</ProjectGuid>
-  </PropertyGroup>
-  <PropertyGroup>
     <RootNamespace>Moshine.UI.UIKit</RootNamespace>
   </PropertyGroup>
   <Import Project="Moshine.UI.UIKit.projitems" Label="Shared" />

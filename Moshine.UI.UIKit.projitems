@@ -24,5 +24,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)IMoveableUITableView.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)ResultTableViewCell.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)IResultReceiver.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transitioning\ModalInteractiveTransition.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transitioning\ModalTransitionAnimator.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transitioning\ModalTransitioningDelegate.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ModalPresentableExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ModalPresentableUINavigationControllerExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ModalPresentableUIViewControllerExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ModalPresentable.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ModalPresentationController.pas" />
   </ItemGroup>
 </Project>
