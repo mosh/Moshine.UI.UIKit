@@ -31,12 +31,12 @@ type
   public
     [IBOutlet]property contentView:UIView;
 
-    [IBAction]method doCancel(sender:id);
+    [IBAction]method doCancel(sender:id);virtual;
     begin
       close;
     end;
 
-    [IBAction]method doDone(sender:id);
+    [IBAction]method doDone(sender:id);virtual;
     begin
       close;
     end;
