@@ -32,5 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ModalPresentableUIViewControllerExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\ModalPresentable.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\ModalPresentationController.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)ContentView.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentationDelegate.pas" />
   </ItemGroup>
 </Project>

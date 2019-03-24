@@ -6,7 +6,7 @@ uses
 
 type
 
-  ModalTransitioningDelegate = public class(IUIViewControllerTransitioningDelegate)
+  ModalTransitioningDelegate = public class(IUIViewControllerTransitioningDelegate, IPresentationDelegate)
   public
     interactiveDismiss:Boolean := true;
 
@@ -33,8 +33,22 @@ type
 
     method presentationControllerForPresentedViewController(presented: not nullable UIViewController) presentingViewController(presenting: nullable UIViewController) sourceViewController(source: not nullable UIViewController): nullable UIPresentationController;
     begin
-      exit new ModalPresentationController withPresentedViewController(presented) presentingViewController(presenting);
+      var presentationController := new ModalPresentationController withPresentedViewController(presented) presentingViewController(presenting);
+      if(assigned(presentationDelegate))then
+      begin
+        presentationController.presentationDelegate := self;
+      end;
+      exit presentationController;
     end;
+
+    method frameOfPresentedViewInContainerView(containerBounds:CGRect):CGRect;
+    begin
+      exit presentationDelegate.frameOfPresentedViewInContainerView(containerBounds);
+    end;
+
+    property presentationDelegate:IPresentationDelegate;
+
+
 
     method interactionControllerForDismissal(animator: not nullable IUIViewControllerAnimatedTransitioning): nullable IUIViewControllerInteractiveTransitioning;
     begin

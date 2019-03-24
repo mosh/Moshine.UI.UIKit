@@ -1,6 +1,7 @@
 ﻿namespace Moshine.UI.UIKit.Presentation;
 
 uses
+  Moshine.UI.UIKit.Presentation,
   UIKit;
 
 type
@@ -16,6 +17,8 @@ type
 
 
   public
+
+    property presentationDelegate:IPresentationDelegate;
 
     method presentationTransitionWillBegin; override;
     begin
@@ -95,18 +98,17 @@ type
     end;
 
     property frameOfPresentedViewInContainerView: CGRect read begin
-        var margin := CGRectMake(15,50,15,15);
+        if(assigned(presentationDelegate))then
+        begin
+          exit presentationDelegate.frameOfPresentedViewInContainerView(self.containerView.bounds);
+        end
+        else
+        begin
+          exit CGRectMake(0, self.containerView.bounds.size.height/2,
+                          containerView.bounds.size.width,
+                          containerView.bounds.size.height/2);
+        end;
 
-        exit CGRectMake(margin.origin.x,
-                        margin.origin.y,
-                        containerView.bounds.size.width-(margin.origin.x+margin.size.width),
-                        300/*containerView.bounds.size.height/2*/);
-/*
-      exit CGRectMake(0,
-                      self.containerView.bounds.size.height/2,
-                      containerView.bounds.size.width,
-                      containerView.bounds.size.height/2);
-*/
       end;  override;
 
     method adjustToFullScreen;
