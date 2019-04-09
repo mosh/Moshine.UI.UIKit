@@ -7,7 +7,6 @@ type
   ModalInteractiveTransition = public class(UIPercentDrivenInteractiveTransition)
   private
 
-    viewController:UIViewController;
     presentingViewController:UIViewController;
     panGestureRecognizer:UIPanGestureRecognizer;
 
@@ -21,12 +20,11 @@ type
 
   protected
   public
-    constructor (viewController:UIViewController) withView(view:UIView; presentingViewController:UIViewController);
+    constructor (someViewController:UIViewController) withView(view:UIView; somePresentingViewController:UIViewController);
     begin
       inherited constructor;
 
-      self.viewController := viewController;
-      self.presentingViewController := presentingViewController;
+      self.presentingViewController := somePresentingViewController;
       self.panGestureRecognizer := new UIPanGestureRecognizer;
 
       self.panGestureRecognizer.addTarget(self) action(selector(onPan:));

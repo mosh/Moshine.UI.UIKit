@@ -49,9 +49,10 @@ type
         coordinator.animateAlongsideTransition(method begin
             self.dimmingView.alpha := 0;
             self.presentedViewController.view.transform := CGAffineTransformIdentity;
-          end) completion(method begin
-              NSLog('done dismiss animation');
-            end);
+          end) completion(method
+          begin
+            presentationDelegate:dismissAnimation;
+          end);
       end;
     end;
 

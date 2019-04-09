@@ -17,12 +17,12 @@ type
 
   public
 
-    constructor (viewController:UIViewController; presentingViewController:UIViewController);
+    constructor (someViewController:UIViewController; somePresentingViewController:UIViewController);
     begin
       inherited constructor;
 
-      self.viewController := viewController;
-      self.presentingViewController := presentingViewController;
+      self.viewController := someViewController;
+      self.presentingViewController := somePresentingViewController;
       self.interactiveController := new ModalInteractiveTransition(self.viewController) withView(self.presentingViewController.view, self.presentingViewController);
     end;
 
@@ -43,7 +43,12 @@ type
 
     method frameOfPresentedViewInContainerView(containerBounds:CGRect):CGRect;
     begin
-      exit presentationDelegate.frameOfPresentedViewInContainerView(containerBounds);
+      exit presentationDelegate:frameOfPresentedViewInContainerView(containerBounds);
+    end;
+
+    method dismissAnimation;
+    begin
+      presentationDelegate:dismissAnimation;
     end;
 
     property presentationDelegate:IPresentationDelegate;

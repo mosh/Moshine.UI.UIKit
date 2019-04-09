@@ -8,16 +8,12 @@ type
   ModalTransitionAnimatorType = public enum(Present,Dismiss);
 
   ModalTransitionAnimator = public class(IUIViewControllerAnimatedTransitioning)
-  private
-    &type:ModalTransitionAnimatorType;
-
-  protected
   public
 
     method animateTransition(transitionContext: not nullable IUIViewControllerContextTransitioning);
     begin
 
-      var &to := transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey);
+      //var &to := transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey);
       var &from := transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey);
 
       UIView.animateWithDuration(transitionDuration(transitionContext)) animations(method begin
@@ -36,9 +32,9 @@ type
 
     end;
 
-    constructor (&type:ModalTransitionAnimatorType);
+    constructor (&someType:ModalTransitionAnimatorType);
     begin
-      self.&type := &type;
+      //self.&type := &someType;
     end;
 
 
