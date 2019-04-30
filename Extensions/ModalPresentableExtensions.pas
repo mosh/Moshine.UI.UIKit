@@ -5,11 +5,16 @@ uses
   Moshine.UI.UIKit.Transitioning;
 type
 
-  ModalPresentableExtensions = public extension class(ModalPresentable)
+  CloseReason = public enum (Cancel,Done);
+
+
+  ModalPresentableExtensions = public extension class(IModalPresentable)
   public
 
-    method close;
+    method close(reason:CloseReason);
     begin
+      self.reasonForClose := reason;
+
       if(assigned(self.transitioningDelegate) and (self.transitioningDelegate is ModalTransitioningDelegate)) then
       begin
         var &delegate := self.transitioningDelegate as ModalTransitioningDelegate;

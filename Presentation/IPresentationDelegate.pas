@@ -8,7 +8,7 @@ type
 
   IPresentationDelegate = public interface
     method frameOfPresentedViewInContainerView(containerBounds:CGRect):CGRect;
-    method dismissAnimation;
+    method dismissAnimation(sender:id);
   end;
 
 end.

@@ -51,7 +51,7 @@ type
             self.presentedViewController.view.transform := CGAffineTransformIdentity;
           end) completion(method
           begin
-            presentationDelegate:dismissAnimation;
+            presentationDelegate:dismissAnimation(self);
           end);
       end;
     end;

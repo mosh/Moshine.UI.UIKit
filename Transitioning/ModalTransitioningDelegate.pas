@@ -11,11 +11,13 @@ type
     interactiveDismiss:Boolean := true;
 
   private
-    viewController:UIViewController;
-    presentingViewController:UIViewController;
     interactiveController:ModalInteractiveTransition;
 
   public
+
+    property viewController:UIViewController;
+    property presentingViewController:UIViewController;
+
 
     constructor (someViewController:UIViewController; somePresentingViewController:UIViewController);
     begin
@@ -46,9 +48,9 @@ type
       exit presentationDelegate:frameOfPresentedViewInContainerView(containerBounds);
     end;
 
-    method dismissAnimation;
+    method dismissAnimation(sender:id);
     begin
-      presentationDelegate:dismissAnimation;
+      presentationDelegate:dismissAnimation(self);
     end;
 
     property presentationDelegate:IPresentationDelegate;

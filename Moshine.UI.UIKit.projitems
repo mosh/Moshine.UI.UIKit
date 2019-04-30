@@ -30,9 +30,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ModalPresentableExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ModalPresentableUINavigationControllerExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ModalPresentableUIViewControllerExtensions.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ModalPresentable.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\ModalPresentationController.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)ContentView.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentationDelegate.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IModalPresentable.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IModalReceiver.pas" />
   </ItemGroup>
 </Project>

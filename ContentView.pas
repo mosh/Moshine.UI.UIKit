@@ -9,13 +9,23 @@ type
   [IBObject]
   ContentView = public abstract class(UIView)
   protected
-    method close;
-    begin
-      if(self.nextResponder is ModalPresentable)then
-      begin
-        ModalPresentable(self.nextResponder).close;
-      end;
 
+    method closeWithCancel;
+    begin
+      if(self.nextResponder is IModalPresentable)then
+      begin
+        IModalPresentable(self.nextResponder).OnCloseWithCancel(self);
+        IModalPresentable(self.nextResponder).close(CloseReason.Cancel);
+      end;
+    end;
+
+    method closeWithDone;
+    begin
+      if(self.nextResponder is IModalPresentable)then
+      begin
+        IModalPresentable(self.nextResponder).OnCloseWithDone(self);
+        IModalPresentable(self.nextResponder).close(CloseReason.Done);
+      end;
     end;
 
     method NibName:String; abstract;
@@ -33,12 +43,12 @@ type
 
     [IBAction]method doCancel(sender:id);virtual;
     begin
-      close;
+      closeWithCancel;
     end;
 
     [IBAction]method doDone(sender:id);virtual;
     begin
-      close;
+      closeWithDone;
     end;
 
     // In code
