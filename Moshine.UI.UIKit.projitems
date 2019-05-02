@@ -22,8 +22,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)StepCollectionViewFlowLayout.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)UIResponderExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)IMoveableUITableView.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)ResultTableViewCell.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)IResultReceiver.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Transitioning\ModalInteractiveTransition.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Transitioning\ModalTransitionAnimator.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Transitioning\ModalTransitioningDelegate.pas" />
