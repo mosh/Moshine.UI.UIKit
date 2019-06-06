@@ -30,6 +30,15 @@ type
       exit cellControl as UILabel;
     end; override;
 
+    property Text:String read
+      begin
+        exit textLabel.text;
+      end
+      write
+      begin
+        textLabel.text := value;
+      end;
+
   end;
 
 end.

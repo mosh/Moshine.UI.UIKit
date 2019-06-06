@@ -48,6 +48,15 @@ type
 
     property OnTextChanged:OnTextChangedDelegate;
 
+    property Text:String read
+      begin
+        exit self.textView.Text;
+      end
+      write
+      begin
+        self.textView.Text := value;
+      end;
+
 
   end;
 
