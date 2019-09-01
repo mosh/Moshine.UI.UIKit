@@ -50,11 +50,11 @@ type
 
     property Text:String read
       begin
-        exit self.textView.Text;
+        exit self.textView.text;
       end
       write
       begin
-        self.textView.Text := value;
+        self.textView.text := value;
       end;
 
 
