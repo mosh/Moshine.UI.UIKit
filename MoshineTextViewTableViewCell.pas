@@ -13,7 +13,9 @@ type
 
     method createControl:UIView; override;
     begin
-      exit new UITextView;
+      var view := new UITextView;
+      view.scrollEnabled := false;
+      exit view;
     end;
 
 
@@ -28,9 +30,10 @@ type
 
     end;
 
-    [IBOutlet]property textView:UITextView read begin
-      exit cellControl as UITextView;
-    end;
+    [IBOutlet]property textView:UITextView read
+      begin
+        exit cellControl as UITextView;
+      end;
 
     method touchesBegan(touches: NSSet<UITouch>) withEvent(&event: nullable UIEvent); override;
     begin
@@ -48,15 +51,27 @@ type
 
     property OnTextChanged:OnTextChangedDelegate;
 
-    property Text:String read
+
+    property Text: nullable String read
       begin
         exit self.textView.text;
       end
       write
       begin
         self.textView.text := value;
-      end;
+      end; override;
 
+    method updateConstraints; override;
+    begin
+
+      var labelHeight := self.Text.sizeWithFont(textView.font).height;
+
+      var newFrame := self.frame;
+      newFrame.size := CGSizeMake(newFrame.size.width , labelHeight);
+      self.textView.frame := newFrame;
+
+      inherited updateConstraints;
+    end;
 
   end;
 

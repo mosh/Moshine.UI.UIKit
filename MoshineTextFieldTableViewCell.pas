@@ -14,7 +14,9 @@ type
 
     method createControl:UIView; override;
     begin
-      exit new UITextField;
+      var field := new UITextField;
+
+      exit field;
     end;
 
 
