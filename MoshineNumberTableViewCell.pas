@@ -1,7 +1,9 @@
 ﻿namespace Moshine.UI.UIKit;
 
 uses
-  Foundation,UIKit;
+  Foundation,
+  RemObjects.Elements.RTL,
+  UIKit;
 
 type
 
@@ -66,6 +68,16 @@ type
     begin
       self.textControl:becomeFirstResponder;
     end;
+
+    property number:Integer read
+      begin
+        var value := textControl.text;
+        exit iif(String.IsNullOrEmpty(value),0,Convert.ToInt32(value));
+      end
+      write
+      begin
+        textControl.text := $'{value}';
+      end;
 
 
   end;
