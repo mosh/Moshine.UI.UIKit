@@ -51,7 +51,6 @@ type
 
     property OnTextChanged:OnTextChangedDelegate;
 
-
     property Text: nullable String read
       begin
         exit self.textView.text;
