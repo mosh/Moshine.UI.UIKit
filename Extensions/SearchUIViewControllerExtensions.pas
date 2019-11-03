@@ -4,7 +4,7 @@ uses
   UIKit;
 
 type
-  UIViewControllerExtensions = public extension class(UIViewController)
+  SearchUIViewControllerExtensions = public extension class(UIViewController)
   public
 
     method createSearchController(placeHolder:String) withTableView(someTableView:UITableView):UISearchController;

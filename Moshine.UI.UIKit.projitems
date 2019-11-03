@@ -33,6 +33,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentationDelegate.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\IModalPresentable.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\IModalReceiver.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)UIViewControllerExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\SearchUIViewControllerExtensions.pas" />
   </ItemGroup>
 </Project>
