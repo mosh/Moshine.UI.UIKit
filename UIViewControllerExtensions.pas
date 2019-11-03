@@ -11,8 +11,14 @@ type
     begin
       var searchController := new UISearchController withSearchResultsController(nil);
       searchController.searchBar.placeholder := placeHolder;
-      //searchController.delegate := self;
-      //searchController.searchResultsUpdater := self;
+      if(self is IUISearchControllerDelegate)then
+      begin
+        searchController.delegate := self as IUISearchControllerDelegate;
+      end;
+      if(self is IUISearchResultsUpdating)then
+      begin
+        searchController.searchResultsUpdater := self as IUISearchResultsUpdating;
+      end;
       searchController.dimsBackgroundDuringPresentation := false;
 
       if available("iOS 11.0") then
