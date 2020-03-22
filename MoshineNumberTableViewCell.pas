@@ -13,7 +13,10 @@ type
 
     method createControl:UIView; override;
     begin
-      exit new UITextField;
+      var textField := new UITextField;
+      textField.keyboardType := UIKeyboardType.NumberPad;
+      textField.returnKeyType := UIReturnKeyType.Done;
+      exit textField;
     end;
 
     method setup; override;

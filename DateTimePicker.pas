@@ -752,7 +752,7 @@ type
       colonLabel1 := new UILabel withFrame(CGRectMake(0, 0, 10, 36));
       colonLabel1.center := CGPointMake(contentView.frame.size.width / 2 + extraSpace, (doneButton.frame.origin.y - borderBottomView.frame.origin.y - 10) / 2 + borderBottomView.frame.origin.y);
       colonLabel1.text := ':';
-      colonLabel1.font := UIFont.boldSystemFontofSize(18);
+      colonLabel1.font := UIFont.boldSystemFontOfSize(18);
       colonLabel1.textColor := highlightColor;
       colonLabel1.textAlignment := NSTextAlignment.Center;
       colonLabel1.hidden := isDatePickerOnly;

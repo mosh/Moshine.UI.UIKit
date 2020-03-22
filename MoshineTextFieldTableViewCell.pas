@@ -9,13 +9,15 @@ type
 
 
   [IBObject]
-  MoshineTextFieldTableViewCell = public class(MoshineBaseTableViewCell)
+  MoshineTextFieldTableViewCell = public class(MoshineBaseTableViewCell, IUITextFieldDelegate)
   protected
 
     method createControl:UIView; override;
     begin
       var field := new UITextField;
-
+      field.keyboardType := UIKeyboardType.Default;
+      field.returnKeyType := UIReturnKeyType.Done;
+      field.delegate := self;
       exit field;
     end;
 
@@ -25,7 +27,6 @@ type
       inherited setup;
 
       self.textField.textAlignment := NSTextAlignment.Left;
-
       self.textField.addTarget(self) action(selector(textFieldDidChange:)) forControlEvents(UIControlEvents.EditingChanged);
 
     end;
@@ -38,7 +39,6 @@ type
       end;
 
     end;
-
 
   public
 
@@ -53,6 +53,13 @@ type
     begin
       self.textField:becomeFirstResponder;
     end;
+
+    method textFieldShouldReturn(textField: not nullable UITextField): BOOL;
+    begin
+      self.textField.resignFirstResponder;
+      exit true;
+    end;
+
 
   end;
 
