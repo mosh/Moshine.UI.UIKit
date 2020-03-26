@@ -15,6 +15,8 @@ type
     begin
       var view := new UITextView;
       view.scrollEnabled := false;
+      view.keyboardType := UIKeyboardType.Default;
+      view.returnKeyType := UIReturnKeyType.Done;
       exit view;
     end;
 
@@ -71,6 +73,13 @@ type
 
       inherited updateConstraints;
     end;
+
+    method textViewShouldEndEditing(someTextView: not nullable UITextView):BOOL;
+    begin
+      someTextView.resignFirstResponder;
+      exit true;
+    end;
+
 
   end;
 
