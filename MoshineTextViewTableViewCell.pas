@@ -74,9 +74,9 @@ type
       inherited updateConstraints;
     end;
 
-    method textViewShouldEndEditing(textView: not nullable UITextView):BOOL;
+    method textViewShouldEndEditing(someTextView: not nullable UITextView):BOOL;
     begin
-      self.textView.resignFirstResponder;
+      someTextView.resignFirstResponder;
       exit true;
     end;
 
