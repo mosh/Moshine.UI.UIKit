@@ -530,21 +530,17 @@ type
       doneButton.setTitle(doneButtonTitle) forState(UIControlState.Normal);
     end;
 
-    property is12HourFormat:Boolean read _is12HourFormat write set_is12HourFormat;
+    property is12HourFormat:Boolean read _is12HourFormat write
+      begin
+        _is12HourFormat:= value;
+        configureView;
+      end;
 
-    method set_is12HourFormat(value:Boolean);
-    begin
-      _is12HourFormat:= value;
-      configureView;
-    end;
-
-    property isDatePickerOnly:Boolean read _isDatePickerOnly write set_isDatePickerOnly;
-
-    method set_isDatePickerOnly(value:Boolean);
-    begin
-      _isDatePickerOnly := value;
-      configureView;
-    end;
+    property isDatePickerOnly:Boolean read _isDatePickerOnly write
+      begin
+        _isDatePickerOnly := value;
+        configureView;
+      end;
 
     timeZone:TimeZone := NSTimeZone.localTimeZone;
 
@@ -561,13 +557,11 @@ type
 
     _components:NSDateComponents;
 
-    property components:NSDateComponents read _components write set_components;
-
-    method set_components(Value:NSDateComponents);
-    begin
-      _components := Value;
-      _components.timeZone := timeZone;
-    end;
+    property components:NSDateComponents read _components write
+      begin
+        _components := value;
+        _components.timeZone := timeZone;
+      end;
 
     class method show(selected:nullable NSDate := nil; minimumDate: nullable NSDate := nil; maximumDate:nullable NSDate := nil):DateTimePicker;
     begin

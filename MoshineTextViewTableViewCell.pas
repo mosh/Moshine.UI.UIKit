@@ -66,7 +66,7 @@ type
     begin
 
       var labelHeight := self.Text.sizeWithFont(textView.font).height;
-
+      NSLog('%@',$'labelHeight {labelHeight}');
       var newFrame := self.frame;
       newFrame.size := CGSizeMake(newFrame.size.width , labelHeight);
       self.textView.frame := newFrame;
@@ -74,9 +74,9 @@ type
       inherited updateConstraints;
     end;
 
-    method textViewShouldEndEditing(textView: not nullable UITextView):BOOL;
+    method textViewShouldEndEditing(someTextView: not nullable UITextView):BOOL;
     begin
-      self.textView.resignFirstResponder;
+      someTextView.resignFirstResponder;
       exit true;
     end;
 
