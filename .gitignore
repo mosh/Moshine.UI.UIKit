@@ -2,6 +2,4 @@
 *.cache
 
 *.user
-Bin/Debug/iOS/liblibMoshine.UI.UIKit.a
-Bin/Debug/iOS/liblibMoshine.UI.UIKit.fx
-Bin/Debug/iOS/libMoshine.UI.UIKit.h
+Bin

@@ -10,6 +10,10 @@ type
   // https://www.raywenderlich.com/63089/cookbook-moving-table-view-cells-with-a-long-press-gesture
   //
 
+{$IFDEF TOFFEE}
+
+
+  [cocoa]
   MoveableUITableViewExtensions = public extension class(IMoveableUITableView)
 
   protected
@@ -117,6 +121,8 @@ type
 
 
   end;
+
+{$ENDIF}
 
 
 end.

@@ -52,25 +52,18 @@ type
     end;
 
     // In code
-    method initWithFrame(aFrame: CGRect): InstanceType; override;
+    constructor withFrame(frame: CGRect); override;
     begin
-      self := inherited initWithFrame(aFrame);
-      if assigned(self) then
-      begin
-        commonInit;
-      end;
-      result := self;
+      inherited constructor WithFrame(frame);
+      commonInit;
     end;
 
+
     // InterfaceBuilder
-    method initWithCoder(aDecoder: not nullable NSCoder):id; override;
+    constructor WithCoder(aDecoder: not nullable NSCoder); override;
     begin
-      self := inherited initWithCoder(aDecoder);
-      if(assigned(self))then
-      begin
-        commonInit;
-      end;
-      exit self;
+      inherited constructor WithCoder(aDecoder);
+      commonInit;
     end;
 
   end;

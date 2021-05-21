@@ -4,6 +4,11 @@ uses
   UIKit;
 
 type
+
+  {$IFDEF TOFFEE}
+
+
+  [Cocoa]
   ModalInteractiveTransition = public class(UIPercentDrivenInteractiveTransition)
   private
 
@@ -31,7 +36,7 @@ type
       view.addGestureRecognizer(panGestureRecognizer);
     end;
 
-    method startInteractiveTransition(transitionContext: not nullable IUIViewControllerContextTransitioning);
+    method startInteractiveTransition(transitionContext: not nullable IUIViewControllerContextTransitioning); override;
     begin
       inherited startInteractiveTransition(transitionContext);
 
@@ -83,5 +88,7 @@ type
     end;
 
   end;
+
+  {$ENDIF}
 
 end.

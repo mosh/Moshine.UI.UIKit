@@ -15,6 +15,9 @@ type
     begin
       self.reasonForClose := reason;
 
+      {$IFDEF TOFFEE}
+
+
       if(assigned(self.transitioningDelegate) and (self.transitioningDelegate is ModalTransitioningDelegate)) then
       begin
         var &delegate := self.transitioningDelegate as ModalTransitioningDelegate;
@@ -22,6 +25,8 @@ type
       end;
 
       dismissViewControllerAnimated(true) completion(nil);
+
+      {$ENDIF}
 
     end;
   end;

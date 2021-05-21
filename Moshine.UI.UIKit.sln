@@ -1,9 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # RemObjects Fire
-Project("{656346D9-4656-40DA-A068-22D5425D4639}") = "Moshine.UI.UIKit", "Moshine.UI.UIKit.elements", "{2F813F89-8052-4F38-A24C-78EB917C8F5B}"
-EndProject
-Project("{656346D9-4656-40DA-A068-22D5425D4639}") = "libMoshine.UI.UIKit", "libMoshine.UI.UIKit.elements", "{3E099C0E-4197-428E-A863-E1FF979ED4F2}"
+Project("{656346D9-4656-40DA-A068-22D5425D4639}") = "Moshine.UI.UIKit", "Moshine.UI.UIKit.elements", "{DD2FBEC9-0E8E-4E65-92A9-5E7D10266D0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +9,10 @@ Global
 		Release|AnyCPU = Release|AnyCPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3E099C0E-4197-428E-A863-E1FF979ED4F2}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
-		{3E099C0E-4197-428E-A863-E1FF979ED4F2}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
-		{3E099C0E-4197-428E-A863-E1FF979ED4F2}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
-		{3E099C0E-4197-428E-A863-E1FF979ED4F2}.Release|AnyCPU.Build.0 = Release|AnyCPU
+		{DD2FBEC9-0E8E-4E65-92A9-5E7D10266D0D}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{DD2FBEC9-0E8E-4E65-92A9-5E7D10266D0D}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{DD2FBEC9-0E8E-4E65-92A9-5E7D10266D0D}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{DD2FBEC9-0E8E-4E65-92A9-5E7D10266D0D}.Release|AnyCPU.Build.0 = Release|AnyCPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

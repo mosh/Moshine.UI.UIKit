@@ -1,12 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
-  <PropertyGroup Label="Globals">
-    <ProjectGuid>2F813F89-8052-4F38-A24C-78EB917C8F5B</ProjectGuid>
-    <RootNamespace>Moshine.UI.UIKit</RootNamespace>
-  </PropertyGroup>
-  <Import Project="Moshine.UI.UIKit.projitems" Label="Shared" />
-  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.SharedProject.targets" />
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
-    <PreBuildEvent />
+    <ProjectGuid>{DD2FBEC9-0E8E-4E65-92A9-5E7D10266D0D}</ProjectGuid>
+    <OutputType>StaticLibrary</OutputType>
+    <RootNamespace>Moshine.UI.UIKit</RootNamespace>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <DefaultUses>RemObjects.Elements.RTL</DefaultUses>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\Bin\Debug</OutputPath>
+    <EnableAsserts>True</EnableAsserts>
+    <Optimize>False</Optimize>
+    <GenerateDebugInfo>True</GenerateDebugInfo>
+    <ConditionalDefines>DEBUG;TRACE;</ConditionalDefines>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\Bin\Release</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Target)' == 'Island.Darwin.iOS' ">
+    <Mode>Island</Mode>
+    <SubMode>Darwin</SubMode>
+    <SDK>iOS</SDK>
+    <SupportMacCatalyst>False</SupportMacCatalyst>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Target)' == 'Toffee.iOS' ">
+    <Mode>Toffee</Mode>
+    <SDK>iOS</SDK>
+    <SupportMacCatalyst>False</SupportMacCatalyst>
+    <DefaultUses>Foundation;RemObjects.Elements.Linq</DefaultUses>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="#" />
+    <Reference Include="Elements">
+      <Private>True</Private>
+    </Reference>
+    <RemoteProjectReference Include="github.com/mosh/ImportSolution/PureLayout.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MoshineTextViewTableViewCell.pas" />
+    <Compile Include="DateTimePicker.pas" />
+    <Compile Include="MoshineTextFieldTableViewCell.pas" />
+    <Compile Include="MoshineNumberTableViewCell.pas" />
+    <Compile Include="MoshineDatePickerTableViewCell.pas" />
+    <Compile Include="MoshineLabelTableViewCell.pas" />
+    <Compile Include="ContentView.pas" />
+    <Compile Include="DateCollectionViewCell.pas" />
+    <Compile Include="MoshineMoveableUITable.pas" />
+    <Compile Include="MoshineBaseTableViewCell.pas" />
+    <Compile Include="IMoveableUITableView.pas" />
+    <Compile Include="StepCollectionViewFlowLayout.pas" />
+    <Compile Include="UIResponderExtensions.pas" />
+    <Compile Include="Extensions\SearchUIViewControllerExtensions.pas" />
+    <Compile Include="Extensions\ModalPresentableExtensions.pas" />
+    <Compile Include="Extensions\ModalPresentableUIViewControllerExtensions.pas" />
+    <Compile Include="Extensions\ModalPresentableUINavigationControllerExtensions.pas" />
+    <Compile Include="Transitioning\ModalTransitioningDelegate.pas" />
+    <Compile Include="Transitioning\ModalTransitionAnimator.pas" />
+    <Compile Include="Transitioning\ModalInteractiveTransition.pas" />
+    <Compile Include="Presentation\ModalPresentationController.pas" />
+    <Compile Include="Presentation\IPresentationDelegate.pas" />
+    <Compile Include="Presentation\IModalReceiver.pas" />
+    <Compile Include="Presentation\IModalPresentable.pas" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.targets" />
 </Project>

@@ -6,6 +6,10 @@ uses
 
 type
 
+  {$IFDEF TOFFEE}
+
+
+  [Cocoa]
   ModalTransitioningDelegate = public class(IUIViewControllerTransitioningDelegate, IPresentationDelegate)
   public
     interactiveDismiss:Boolean := true;
@@ -65,5 +69,7 @@ type
       end;
     end;
   end;
+
+  {$ENDIF}
 
 end.

@@ -34,6 +34,8 @@ type
     method targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) withScrollingVelocity(velocity: CGPoint): CGPoint; override;
     begin
 
+      {$IFDEF TOFFEE}
+
       var _proposedContentOffset := CGPointMake(proposedContentOffset.x, proposedContentOffset.y);
 
       var offSetAdjustment: CGFloat := CGFLOAT_MAX; //  CGFloat.greatestFiniteMagnitude;
@@ -52,7 +54,7 @@ type
         begin
           var itemHorizontalCenter:CGFloat := layoutAttributes.center.x;
 
-          if ABS(itemHorizontalCenter - horizontalCenter) < ABS(offSetAdjustment) then
+          if abs(itemHorizontalCenter - horizontalCenter) < abs(offSetAdjustment) then
           begin
             offSetAdjustment := itemHorizontalCenter - horizontalCenter;
           end;
@@ -88,6 +90,8 @@ type
       _proposedContentOffset.y := 0.0;
 
       exit _proposedContentOffset;
+
+      {$ENDIF}
 
     end;
 
