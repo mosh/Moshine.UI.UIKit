@@ -44,24 +44,16 @@ type
       setup;
     end;
 
-    method initWithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString): InstanceType; override;
+    constructor WithStyle(style: UITableViewCellStyle) reuseIdentifier(reuseIdentifier: NSString);
     begin
-      self := inherited initWithStyle(style) reuseIdentifier(reuseIdentifier);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
+      inherited constructor WithStyle(style) reuseIdentifier(reuseIdentifier);
+      setup;
     end;
 
-    method initWithCoder(aDecoder: NSCoder): InstanceType;
+    constructor WithCoder(aDecoder: NSCoder);
     begin
-      self := inherited initWithCoder(aDecoder);
-      if(assigned(self))then
-      begin
-        setup;
-      end;
-      exit self;
+      inherited constructor WithCoder(aDecoder);
+      setup;
     end;
 
   end;

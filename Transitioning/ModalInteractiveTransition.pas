@@ -4,6 +4,7 @@ uses
   UIKit;
 
 type
+  [Cocoa]
   ModalInteractiveTransition = public class(UIPercentDrivenInteractiveTransition)
   private
 

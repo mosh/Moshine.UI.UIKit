@@ -5,7 +5,7 @@ uses
   UIKit;
 
 type
-
+  [Cocoa]
   DateTimePicker = public class(UIView,
     IUITableViewDataSource, IUITableViewDelegate,IUICollectionViewDataSource, IUICollectionViewDelegate)
   private
@@ -112,14 +112,15 @@ type
 
     method tableView(tableView: not nullable UITableView) cellForRowAtIndexPath(indexPath: not nullable NSIndexPath): UITableViewCell;
     begin
-      var cell := tableView.dequeueReusableCellWithIdentifier('timeCell');
+      var cell:UITableViewCell := tableView.dequeueReusableCellWithIdentifier('timeCell');
 
       if(not assigned(cell))then
       begin
         cell := new UITableViewCell withStyle(UITableViewCellStyle.Default) reuseIdentifier('timeCell');
       end;
 
-      cell.selectedBackgroundView := new UIView();
+      //cell.selectedBackgroundView := new UIView();
+      cell.selectedBackgroundView := new UIView;
 
       cell.textLabel.textAlignment := iif(tableView = hourTableView, NSTextAlignment.Right, NSTextAlignment.Left);
       cell.textLabel.font := UIFont.boldSystemFontOfSize(18);

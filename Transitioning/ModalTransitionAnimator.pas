@@ -6,7 +6,7 @@ uses
 type
 
   ModalTransitionAnimatorType = public enum(Present,Dismiss);
-
+  [Cocoa]
   ModalTransitionAnimator = public class(IUIViewControllerAnimatedTransitioning)
   public
 

@@ -5,6 +5,7 @@ uses
 
 type
 
+  [Cocoa]
   [IBObject]
   MoshineTextViewTableViewCell = public class(MoshineBaseTableViewCell, IUITextViewDelegate)
   private

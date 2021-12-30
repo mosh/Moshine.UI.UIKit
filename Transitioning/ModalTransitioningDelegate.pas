@@ -5,7 +5,7 @@ uses
   UIKit;
 
 type
-
+  [Cocoa]
   ModalTransitioningDelegate = public class(IUIViewControllerTransitioningDelegate, IPresentationDelegate)
   public
     interactiveDismiss:Boolean := true;

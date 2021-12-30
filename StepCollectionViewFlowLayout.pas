@@ -52,7 +52,7 @@ type
         begin
           var itemHorizontalCenter:CGFloat := layoutAttributes.center.x;
 
-          if ABS(itemHorizontalCenter - horizontalCenter) < ABS(offSetAdjustment) then
+          if RemObjects.Elements.System.abs(itemHorizontalCenter - horizontalCenter) < RemObjects.Elements.System.abs(offSetAdjustment) then
           begin
             offSetAdjustment := itemHorizontalCenter - horizontalCenter;
           end;
