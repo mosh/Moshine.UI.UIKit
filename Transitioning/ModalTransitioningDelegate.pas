@@ -5,6 +5,10 @@ uses
   UIKit;
 
 type
+
+  {$IFDEF TOFFEE}
+
+
   [Cocoa]
   ModalTransitioningDelegate = public class(IUIViewControllerTransitioningDelegate, IPresentationDelegate)
   public
@@ -65,5 +69,7 @@ type
       end;
     end;
   end;
+
+  {$ENDIF}
 
 end.

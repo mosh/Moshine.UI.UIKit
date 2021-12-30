@@ -6,6 +6,8 @@ uses
 
 type
 
+{$IFDEF TOFFEE}
+
 
   IMoveableUITableView = public interface
 
@@ -25,5 +27,7 @@ type
     end;
 
   end;
+
+  {$ENDIF}
 
 end.

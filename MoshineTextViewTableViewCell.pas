@@ -66,11 +66,16 @@ type
     method updateConstraints; override;
     begin
 
+      {$IFDEF TOFFEE}
+
+
       var labelHeight := self.Text.sizeWithFont(textView.font).height;
       NSLog('%@',$'labelHeight {labelHeight}');
       var newFrame := self.frame;
       newFrame.size := CGSizeMake(newFrame.size.width , labelHeight);
       self.textView.frame := newFrame;
+
+      {$ENDIF}
 
       inherited updateConstraints;
     end;

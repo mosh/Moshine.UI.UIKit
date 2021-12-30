@@ -34,6 +34,8 @@ type
     method targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) withScrollingVelocity(velocity: CGPoint): CGPoint; override;
     begin
 
+      {$IFDEF TOFFEE}
+
       var _proposedContentOffset := CGPointMake(proposedContentOffset.x, proposedContentOffset.y);
 
       var offSetAdjustment: CGFloat := CGFLOAT_MAX; //  CGFloat.greatestFiniteMagnitude;
@@ -88,6 +90,8 @@ type
       _proposedContentOffset.y := 0.0;
 
       exit _proposedContentOffset;
+
+      {$ENDIF}
 
     end;
 
