@@ -18,7 +18,6 @@ type
 
     method setup; virtual;
     begin
-      self.detailTextLabel:hidden := true;
       self.cellControl := createControl;
       self.contentView.viewWithTag(3):removeFromSuperview();
       self.cellControl.tag := 3;

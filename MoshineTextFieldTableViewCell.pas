@@ -54,7 +54,7 @@ type
       self.textField:becomeFirstResponder;
     end;
 
-    method textFieldShouldReturn(textField: not nullable UITextField): BOOL;
+    method textFieldShouldReturn(someTextField: not nullable UITextField): BOOL;
     begin
       self.textField.resignFirstResponder;
       exit true;

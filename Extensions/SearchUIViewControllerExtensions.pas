@@ -19,7 +19,7 @@ type
       begin
         searchController.searchResultsUpdater := self as IUISearchResultsUpdating;
       end;
-      searchController.dimsBackgroundDuringPresentation := false;
+      searchController.obscuresBackgroundDuringPresentation := false;
 
       if available("iOS 11.0") then
       begin

@@ -1,7 +1,7 @@
 ﻿namespace Moshine.UI.UIKit;
 
 uses
-  Foundation, UIKit;
+  Foundation, UIKit, RemObjects.Elements.RTL;
 
 type
 
@@ -54,7 +54,7 @@ type
 
     property OnTextChanged:OnTextChangedDelegate;
 
-    property Text: nullable String read
+    property Text: nullable NSString read
       begin
         exit self.textView.text;
       end
@@ -66,16 +66,15 @@ type
     method updateConstraints; override;
     begin
 
-      {$IFDEF TOFFEE}
+      var fontDictionary := new NSMutableDictionary;
+      fontDictionary.setValue(textView.font) forKey(NSFontAttributeName);
+      var size := self.Text.sizeWithAttributes(fontDictionary);
 
-
-      var labelHeight := self.Text.sizeWithFont(textView.font).height;
-      NSLog('%@',$'labelHeight {labelHeight}');
+      var labelHeight := size.height;
+      Log($'labelHeight {labelHeight}');
       var newFrame := self.frame;
       newFrame.size := CGSizeMake(newFrame.size.width , labelHeight);
       self.textView.frame := newFrame;
-
-      {$ENDIF}
 
       inherited updateConstraints;
     end;
